@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/crimeListFragment2">
+    <fragment
+        android:id="@+id/crimeListFragment2"
+        android:name="com.ziemapp.johnzieman.crimeoffice.CrimeListFragment"
+        android:label="fragment_crime_list"
+        tools:layout="@layout/fragment_crime_list" >
+        <action
+            android:id="@+id/action_crimeListFragment2_to_crimeFragment2"
+            app:destination="@id/crimeFragment2"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/crimeFragment2"
+        android:name="com.ziemapp.johnzieman.crimeoffice.CrimeFragment"
+        android:label="fragment_crime"
+        tools:layout="@layout/fragment_crime" >
+        <action
+            android:id="@+id/action_crimeFragment2_to_crimeListFragment2"
+            app:destination="@id/crimeListFragment2" />
+        <argument
+            android:name="crimeId"
+            app:argType="java.util.UUID" />
+        <action
+            android:id="@+id/action_crimeFragment2_to_datePickerFragment"
+            app:destination="@id/datePickerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/datePickerFragment"
+        android:name="com.ziemapp.johnzieman.crimeoffice.DatePickerFragment"
+        android:label="DatePickerFragment" >
+        <argument
+            android:name="date"
+            app:argType="java.util.Date" />
+    </fragment>
+</navigation>
